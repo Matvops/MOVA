@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --background-main-color: #F6F6F3; /* Fundo geral da aplicação */
+    --surface: #FFFFFF; /* Cards, tabelas, sidebar, topbar */
+    --surface-sunken: #F0F0EC; /* Áreas "rebaixadas" (barra de busca, resumo, empty state) */
+
+    --text-primary-color: #17181C; /* Texto principal / títulos */
+    --text-secondary-color: #54565F; /* Texto secundário */
+    --text-tertiary-color: #8A8C93; /* Texto terciário / legendas / placeholders */
+
+    --border-primary-color: #E4E4DF; /* Divisórias e bordas padrão */
+    --border-secondary-color: #D2D2CB; /* Bordas de inputs e botões secundários */
+
+    --primary-color: #77972B; /* Botões primários, elementos ativos */
+    --secondary-color: #5A7420; /* Links, texto sobre fundo accent-soft */
+    --tertiary-color: #EBF0DA; /* Fundo de badges/estado "ativo" */
+    --quaternary-color: #D3DEB4; /* Borda sutil sobre accent-soft */
+
+    /* STATUS COLOR */
+
+    --green: #2F7A4F; /* Disponível / Concluída / Ativo */
+    --lightgreen: #E4F0E7; /* Disponível / Concluída / Ativo */
+
+    --yellow: #A66A1E; /* Em manutenção */
+    --lightyellow: #F5EBDA; /* Em manutenção */
+
+    --red: #AE3B2E; /* Atrasada / erro / cancelamento */
+    --lightred: #F5E2DE;  /* Atrasada / erro / cancelamento */
+
+    --gray: #6B6D74; /* Inativo */
+    --lightgray: #EBEBE7; /* Inativo */      
+    
+    --primary-font: 'Archivo', Arial, Helvetica, sans-serif; 
+    --secondary-font: 'IBM Plex Sans', Arial, Helvetica, sans-serif;   
+}
+
+body {
+    background-color: var(--background-main-color);
+}
