@@ -3,6 +3,7 @@
 
 :root {
     --background-main-color: #F6F6F3; /* Fundo geral da aplicação */
+    --backgrounnd-secondary-color: #17181C; /* Cor secundária de fundo da aplicação */
     --surface: #FFFFFF; /* Cards, tabelas, sidebar, topbar */
     --surface-sunken: #F0F0EC; /* Áreas "rebaixadas" (barra de busca, resumo, empty state) */
 
