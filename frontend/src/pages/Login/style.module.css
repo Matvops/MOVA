@@ -1,0 +1,43 @@
+.body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-family: var(--primary-font);
+}
+
+.banner {
+    background-color: var(--backgrounnd-secondary-color);
+    flex: 1;
+    height: 100%;
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form {
+    flex: 1;
+    padding: 24rem 12rem;
+}
+
+.bannerMain {
+    color: var(--surface);
+    padding-right: 24rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.bannerMain > h1 {
+    font-size: clamp(3.2rem, 4vw, 4.6rem);
+}
+
+.bannerMain > p {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    color: var(--text-tertiary-color);
+}
+
+.footer {
+    color: var(--text-tertiary-color);
+    font-size: clamp(.6rem, 2vw, 1.2rem);
+}
