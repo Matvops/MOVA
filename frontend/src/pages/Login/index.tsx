@@ -1,7 +1,12 @@
 import styles from './style.module.css';
 import { Heading } from "../../components/Heading";
+import { useState } from 'react';
+import { InputDefault } from '../../components/InputDefault';
 
 export function Login() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div className={styles.body}>
@@ -19,7 +24,39 @@ export function Login() {
       </section>
 
       <section className={styles.form}>
-        <Heading mode='dark'>Entrar</Heading>
+        <header className={styles.formHeader}>
+          <Heading mode='dark'>Entrar</Heading>
+          <p>Acesse com sua conta corporativa MOVA.</p>
+        </header>
+
+        <form className={styles.formBody} autoComplete="off">
+
+          <div className={styles.inputs}>
+            <InputDefault 
+              value={email}
+              handleValue={(e) => setEmail(e.target.value)}
+              label='E-mail'
+              type='email'
+              placeholder='nome.sobrenome@mova.com.br'
+              required
+              autoComplete='off'
+            />
+
+            <InputDefault 
+              value={password}
+              handleValue={(e) => setPassword(e.target.value)}
+              label='Senha'
+              type='password'
+              placeholder='•••••••'
+              required
+              autoComplete='new-password'
+            />
+
+            <button type='button' className={styles.button}>Entrar</button>
+          </div>
+
+        </form>
+
       </section>
     </div>
   );

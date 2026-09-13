@@ -18,6 +18,42 @@
 .form {
     flex: 1;
     padding: 24rem 12rem;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.formHeader > p {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    color: var(--text-tertiary-color);
+    margin-top: .4rem;
+}
+
+.formBody {
+    margin-top: 7.2rem;
+}
+
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.button {
+    max-width: fit-content;
+    padding: .8rem 1.6rem;
+    border-radius: .4rem;
+    background-color: var(--primary-color);
+    color: var(--surface);
+    border: 0;
+    font-size: medium;
+    transition: all 75ms ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    filter: brightness(90%);
 }
 
 .bannerMain {
