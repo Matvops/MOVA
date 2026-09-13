@@ -1,0 +1,15 @@
+.button {
+    max-width: fit-content;
+    padding: .8rem 1.6rem;
+    border-radius: .4rem;
+    background-color: var(--primary-color);
+    color: var(--surface);
+    border: 0;
+    font-size: medium;
+    transition: all 75ms ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    filter: brightness(90%);
+}

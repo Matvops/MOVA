@@ -2,6 +2,7 @@ import styles from './style.module.css';
 import { Heading } from "../../components/Heading";
 import { useState } from 'react';
 import { InputDefault } from '../../components/InputDefault';
+import { ButtonDefault } from '../../components/ButtonDefault';
 
 export function Login() {
 
@@ -52,7 +53,10 @@ export function Login() {
               autoComplete='new-password'
             />
 
-            <button type='button' className={styles.button}>Entrar</button>
+            <ButtonDefault 
+              text='Entrar'
+              type='button'
+            />
           </div>
 
         </form>
