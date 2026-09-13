@@ -73,7 +73,12 @@
     color: var(--text-tertiary-color);
 }
 
-.footer {
+.footer > a {
     color: var(--text-tertiary-color);
     font-size: clamp(.6rem, 2vw, 1.2rem);
+    text-decoration: none;
+}
+
+.footer > a:hover {
+    text-decoration: underline;
 }

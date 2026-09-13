@@ -21,7 +21,14 @@ export function Login() {
           <p>Cadastros, locações, devoluções e manutenção — organizados para quem atende o cliente na linha de frente todos os dias.</p>
         </main>
 
-        <footer className={styles.footer}>MOVA Locações · Curitiba, PR</footer>
+        <footer className={styles.footer}>
+          <a 
+            href="https://www.google.com/maps?client=ubuntu-sn&hs=2Ca&sca_esv=8d8a095dd594124b&channel=fs&output=search&q=parque+barigui+maps&source=lnms&fbs=ABfTbFVGaQeaqnsRPI5sOMG32KszjzN4g3YOmrBeWW1F-m8tPgnzKxLxr3nZIcZpr1Oa9JyMX7dTJh6X9MktrFyyA-CZCL8bNOmdCvMjTZCAApo4DGcDfFV6MxE9vwLh6lP2Gyo4JGVy4d8sLtbIDXWcovwwA4mc3LmX8QKRPqPIkumUQOTNCmdq2-NxeSphaebaBeY_Jev0D1-V817s0Dit--t6JRSIgA&entry=mc&ved=1t:200715&ictx=111" 
+            target='_blank'
+          >
+            MOVA Locações · Curitiba, PR
+          </a>
+        </footer>
       </section>
 
       <section className={styles.form}>
