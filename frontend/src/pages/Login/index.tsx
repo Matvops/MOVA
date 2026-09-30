@@ -3,9 +3,11 @@ import { Heading } from "../../components/Heading";
 import { useState } from 'react';
 import { InputDefault } from '../../components/InputDefault';
 import { ButtonDefault } from '../../components/ButtonDefault';
+import { AuthService } from '../../services/auth/AuthService';
 
 export function Login() {
 
+  const service = new AuthService;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -63,6 +65,7 @@ export function Login() {
             <ButtonDefault 
               text='Entrar'
               type='button'
+              onClick={() => service.login()}
             />
           </div>
 
