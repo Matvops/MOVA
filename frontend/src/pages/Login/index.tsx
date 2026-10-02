@@ -11,6 +11,18 @@ export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  async function login() 
+  {
+    const response = await service.login(email, password);
+
+    if(response.status === false) {
+      alert(response.message);
+      return;
+    } 
+
+    sessionStorage.setItem('token', response.data.token);
+  }
+
   return (
     <div className={styles.body}>
       <section className={styles.banner}>
@@ -65,7 +77,7 @@ export function Login() {
             <ButtonDefault 
               text='Entrar'
               type='button'
-              onClick={() => service.login()}
+              onClick={login}
             />
           </div>
 
