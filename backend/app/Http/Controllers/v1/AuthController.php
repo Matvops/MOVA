@@ -18,6 +18,8 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request) {
 
-        
+        $response = $this->service->login(LoginRequestDTO::fromRequest($request));
+
+        return $this->sendResponse($response);
     }
 }
