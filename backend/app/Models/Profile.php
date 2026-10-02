@@ -10,7 +10,11 @@ class Profile extends Model
 
     public $table = 'profiles';
     public $primaryKey = 'pro_id';
-    
+
+    protected $casts = [
+        'pro_abilities' => 'array'
+    ];
+
     protected $fillable = [
         'pro_id',
         'pro_name',
