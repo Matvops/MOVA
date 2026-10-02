@@ -10,6 +10,10 @@ class User extends Authenticable
     public $table = 'user';
     public $primaryKey = 'usr_id';
 
+    protected $casts = [
+        'pro_abilities' => 'array'
+    ];
+
     protected $fillable = [
         'usr_id',
         'usr_profile_id',
