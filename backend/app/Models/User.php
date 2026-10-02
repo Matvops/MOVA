@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticable;
 
 class User extends Authenticable
 {
-    public $table = 'user';
+    public $table = 'users';
     public $primaryKey = 'usr_id';
 
     protected $casts = [
