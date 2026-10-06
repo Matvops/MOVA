@@ -1,6 +1,7 @@
 import { Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { MainRouter } from "./routes/MainRouter";
+import { Dashboard } from "./pages/Dashboard";
 
 export function App() {
 
@@ -11,6 +12,11 @@ export function App() {
         <Route
           path="/"
           element={<Login />}
+        />
+
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
         />
 
         <Route
