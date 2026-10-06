@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { InputDefault } from '../../components/InputDefault';
 import { ButtonDefault } from '../../components/ButtonDefault';
 import { AuthService } from '../../services/auth/AuthService';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
 
+
+  const navigate = useNavigate();
   const service = new AuthService;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +24,7 @@ export function Login() {
     } 
 
     sessionStorage.setItem('token', response.data.token);
+    navigate('/dashboard');
   }
 
   return (
