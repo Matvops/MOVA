@@ -11,8 +11,6 @@ export class AuthService {
           email: email,
           password: password
       });
-      
-      console.log(response);
 
       return response.data;
     } catch (error: any) {
