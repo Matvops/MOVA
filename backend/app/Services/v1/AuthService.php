@@ -28,13 +28,16 @@ class AuthService {
 
             if(!$user) throw new NotFoundResourceException('Email ou senha inválido.', 400);
 
-            if(Hash::check($request->password, $user->usr_password) === false) throw new ValidationException('Email ou senha inválido.');
+            if(Hash::check($request->password, $user->usr_password) === false) 
+                throw new ValidationException('Email ou senha inválido.');
                        
             $profile = $user->profile;
 
             $token = $user->createToken(Request::userAgent(), $profile->pro_abilities);
 
-            return Response::successfully('Login realizado com sucesso', ['token' => $token->plainTextToken]);
+            $authentication = AuthenticationResource::make($user)->additional(['token' => $token->plainTextToken]);
+
+            return Response::successfully('Login realizado com sucesso', $authentication);
         } catch (NotFoundResourceException|ValidationException $e) {
             return Response::error($e->getMessage(), code: $e->getCode());
         } catch (Throwable $e) {    
