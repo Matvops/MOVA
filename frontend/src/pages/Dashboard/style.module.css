@@ -3,6 +3,7 @@
     width: 100%;
     height: 100%;
     font-size: 1.6rem;
+    position: relative;
 }
 
 .header {
@@ -13,6 +14,10 @@
     align-items: center;
     box-sizing: border-box;
     width: 100%;
+    box-shadow: .1rem 0 .1rem rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .headerUserInfo {
