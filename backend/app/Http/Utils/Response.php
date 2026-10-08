@@ -2,6 +2,8 @@
 
 namespace App\Http\Utils;
 
+use Illuminate\Http\Resources\Json\JsonResource;
+
 class Response {
     
     private bool $status;
@@ -9,7 +11,7 @@ class Response {
     private object $data;
     private int $code;
 
-    private function __construct(bool $status, string|null $message, array|null $data, int $code)
+    private function __construct(bool $status, string|null $message, array|JsonResource|null $data, int $code)
     {
         $this->status = $status;
         $this->message = $message;
@@ -17,7 +19,7 @@ class Response {
         $this->code = $code;
     }
 
-    public static function successfully(string|null $message, array|null $data = null, int $code = 200): self
+    public static function successfully(string|null $message, array|JsonResource|null $data = null, int $code = 200): self
     {
         return new self(
             status: true,
