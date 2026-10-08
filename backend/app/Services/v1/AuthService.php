@@ -5,6 +5,7 @@ namespace App\Services\v1;
 use App\Dtos\Auth\Login\LoginRequestDTO;
 use App\Exceptions\NotFoundResourceException;
 use App\Exceptions\ValidationException;
+use App\Http\Resources\Auth\AuthenticationResource;
 use App\Http\Utils\Response;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
