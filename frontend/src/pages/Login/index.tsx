@@ -1,10 +1,12 @@
 import styles from './style.module.css';
 import { Heading } from "../../components/Heading";
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { InputDefault } from '../../components/InputDefault';
 import { ButtonDefault } from '../../components/ButtonDefault';
 import { AuthService } from '../../services/auth/AuthService';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext/UserContext';
+import type { User } from '../../interfaces/User';
 
 export function Login() {
 
@@ -13,6 +15,7 @@ export function Login() {
   const service = new AuthService;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { user, setUser } = useContext(UserContext);
 
   async function login() 
   {
@@ -23,9 +26,26 @@ export function Login() {
       return;
     } 
 
+    const data: User = response.data.user;
+
+    setUser({
+      user: data.user,
+      branch: data.branch,
+      name: data.name,
+      email: data.email,
+      abilities: data.abilities,
+      can: (ability: string) => {
+        return data.abilities.includes(ability);
+      }
+    });
+
     sessionStorage.setItem('token', response.data.token);
     navigate('/dashboard');
   }
+
+  useEffect(() => {
+      console.log(user);
+    }, [user]);
 
   return (
     <div className={styles.body}>
