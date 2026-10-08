@@ -4,6 +4,7 @@ export const initialUserValue: User = {
     user: '',
     abilities: [],
     name: '',
+    profile: '',
     email: '',
     branch: '',
     can: (ability: string) => {

@@ -33,6 +33,7 @@ export function Login() {
       branch: data.branch,
       name: data.name,
       email: data.email,
+      profile: data.profile,
       abilities: data.abilities,
       can: (ability: string) => {
         return data.abilities.includes(ability);
