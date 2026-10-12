@@ -33,8 +33,8 @@
     --gray: #6B6D74; /* Inativo */
     --lightgray: #EBEBE7; /* Inativo */      
     
-    --primary-font: 'Archivo', Arial, Helvetica, sans-serif; 
-    --secondary-font: 'IBM Plex Sans', Arial, Helvetica, sans-serif;   
+    --primary-font: "Archivo", Arial, Helvetica, sans-serif; 
+    --secondary-font: "IBM Plex Sans", sans-serif, Arial, Helvetica, sans-serif;   
 }
 
 body {

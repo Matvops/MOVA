@@ -1,24 +1,23 @@
 .nav {
-    max-width: 20rem;
+    width: clamp(15rem, 12vw, 90rem);
     height: 100vh;
-    width: 20%;
-    z-index: 1000;
     background-color: white;
     box-shadow: 0rem .1rem .1rem rgba(0, 0, 0, .6);
 }
 
 .navHeader {
-    padding: 1.8rem;
+    padding: 2.4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: .1rem solid rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    max-height: 12vh;
 }
 
 .navHeader > h1 {
     font-family: var(--secondary-font);
     font-weight: 500;
-    font-size: clamp(1.2rem, 8vw, 2.4rem);
+    font-size: clamp(2rem, 2vh, 3rem);
 }
 
 .returnIcon {
@@ -33,3 +32,45 @@
     color: black;
     background-color: rgba(0, 0, 0, .1);
 }
+
+.content {
+    padding: 1.8rem;
+    font-family: '';
+}
+
+.titleContent {
+    color: var(--text-tertiary-color);
+    font-weight: light;
+    font-size: clamp(.4rem, 1.2vh, 1.8rem);
+}
+
+.sections {
+    margin-top: 1.6rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.sections > li {
+    color: var(--text-secondary-color);
+    font-size: clamp(.6rem, 1.2vh, 2rem);
+    padding: .8rem 1.2rem;
+    cursor: pointer;
+    transition: all 100ms ease;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.sections > li:hover {
+    background-color: rgba(0, 0, 0, .1);
+    color: var(--text-primary-color);
+    font-weight: 600;
+}
+
+.icon {
+    font-size: clamp(1rem, 2vh, 1.8rem);
+}
+

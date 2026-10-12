@@ -4,7 +4,9 @@ export function Dashboard() {
 
   return (
     <MainTemplate>
-      <div></div>
+      <div>
+        <p>a</p>
+      </div>
     </MainTemplate>
   )
 }
