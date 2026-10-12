@@ -5,6 +5,11 @@ import { LiaCarSideSolid } from 'react-icons/lia';
 import { FiUsers } from 'react-icons/fi';
 import { GrDocumentText } from 'react-icons/gr';
 import { BsWrenchAdjustableCircle } from 'react-icons/bs';
+import { AuthService } from '../../services/auth/AuthService';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext/UserContext';
+import { initialUserValue } from '../../contexts/UserContext/initialUserValue';
+import { useNavigate } from 'react-router-dom';
 
 type NavBarProps = {
   visible: boolean,
@@ -12,6 +17,25 @@ type NavBarProps = {
 }
 
 export function NavBar({ visible, setVisible }: NavBarProps) {
+
+  const service = new AuthService;
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  async function logout() {
+    
+
+    const response = await service.logout(user.user);
+
+    if(response.status === false) {
+      alert(response.message);
+      return;
+    }
+
+    sessionStorage.removeItem('token');
+    setUser(initialUserValue);
+    navigate('/');  
+  }
 
   return (
     <>
@@ -33,7 +57,7 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
             </ul>
           </main>
 
-          <footer className={styles.footer}>
+          <footer className={styles.footer} onClick={logout}>
               <MdOutlineLogout />
               <p>Sair</p>
           </footer>
