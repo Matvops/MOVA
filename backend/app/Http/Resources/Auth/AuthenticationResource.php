@@ -18,8 +18,8 @@ class AuthenticationResource extends JsonResource
             'user' => [
                 'user' => $this->usr_id,
                 'abilities' => $this->profile->pro_abilities,
-                'profile' => $this->profile->pro_name,
-                'name' => $this->usr_name,
+                'profile' => ucwords(strtolower($this->profile->pro_name)),
+                'name' => ucwords(strtolower($this->usr_name)),
                 'email' => $this->usr_email,
                 'branch' => 'Curitiba',
             ],
