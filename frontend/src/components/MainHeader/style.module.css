@@ -1,0 +1,103 @@
+.header {
+    background-color: var(--surface);
+    padding: 2rem 2.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: .1rem 0 .1rem rgba(0, 0, 0, 0.8);
+    height: fit-content !important;
+}   
+
+.headerUserInfo {
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+}
+
+.profile {
+    font-weight: 500;
+}
+
+.headerNavigation {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    flex: 1;
+}
+
+.navDrawer {
+    cursor: pointer;
+    font-size: clamp(2.4rem, 6vw, 2.8rem);
+    color: rgba(0, 0, 0, .8);
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-main-color);
+    padding: .6rem .4rem;
+    border-radius: .2rem;
+    box-shadow: 0 0 .1rem rgba(0, 0, 0, .6);
+    min-width: 20%;
+}
+
+.searchIcon {
+    background-color: var(--background-main-color);
+    min-width: 24px;
+}
+
+.input {
+    background-color: var(--background-main-color);
+    border: transparent;
+    outline: 0;
+    flex: 1;
+}
+
+.nav {
+    max-width: 20rem;
+    height: 100vh;
+    width: 20%;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0rem .1rem .1rem rgba(0, 0, 0, .6);
+}
+
+.navHeader {
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: .1rem solid rgba(0, 0, 0, .2);
+}
+
+.navHeader > h1 {
+    font-family: var(--secondary-font);
+    font-weight: 500;
+    font-size: clamp(1.2rem, 8vw, 2.4rem);
+}
+
+.returnIcon {
+    color: rgba(0, 0, 0, .6);
+    font-size: clamp(1.2rem, 6vw, 2rem);
+    cursor: pointer;
+    transition: all 100ms ease-out;
+    border-radius: 50%;
+}
+
+.returnIcon:hover {
+    color: black;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    z-index: 1000;
+    width: 100%;
+}
