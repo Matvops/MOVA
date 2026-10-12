@@ -1,11 +1,11 @@
 import { MainHeader } from '../../components/MainHeader';
-import styles from './style.module.css';
+import { MainTemplate } from '../../templates/MainTemplate';
 
 export function Dashboard() {
 
   return (
-    <div className={styles.body}>
+    <MainTemplate>
       <MainHeader />
-    </div>
+    </MainTemplate>
   )
 }
