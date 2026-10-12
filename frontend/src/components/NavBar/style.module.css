@@ -19,7 +19,7 @@
 .navHeader > h1 {
     font-family: var(--secondary-font);
     font-weight: 500;
-    font-size: clamp(1.2rem, 2vh, 3rem);
+    font-size: clamp(1.2rem, 2.4vh, 3rem);
 }
 
 .returnIcon {
@@ -59,7 +59,7 @@
 .sections > li {
     color: var(--text-secondary-color);
     font-size: clamp(.6rem, 1.2vh, 2rem);
-    padding: .6rem 1.2rem;
+    padding: .8rem 1.2rem;
     cursor: pointer;
     transition: all 100ms ease;
     box-sizing: border-box;
@@ -67,6 +67,7 @@
     align-items: center;
     gap: .8rem;
     border-left: .2rem solid transparent;
+    border-radius: .2rem;
 }
 
 .sections > li:hover {
