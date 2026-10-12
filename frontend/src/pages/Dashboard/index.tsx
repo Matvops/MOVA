@@ -4,7 +4,7 @@ export function Dashboard() {
 
   return (
     <MainTemplate>
-      <div>opa</div>
+      <div></div>
     </MainTemplate>
   )
 }

@@ -1,15 +1,11 @@
-import { IoReorderThreeOutline } from 'react-icons/io5';
 import styles from './style.module.css';
-import { CiSearch } from 'react-icons/ci';
-import { UserAvatar } from '../UserAvatar';
-import { useContext, useState } from 'react';
-import { UserContext } from '../../contexts/UserContext/UserContext';
+import { useState } from 'react';
 import { NavBar } from '../NavBar';
+import { Header } from '../Header';
 
 
 export function MainHeader() {
 
-  const { user } = useContext(UserContext);
   const [navVisible, setNavVisible] = useState(false);
 
   return (
@@ -18,26 +14,11 @@ export function MainHeader() {
         visible={navVisible}
         setVisible={setNavVisible}
       />
-      <header className={styles.header}>
 
-        <div className={styles.headerNavigation}>
-          {!navVisible && (
-            <div onClick={() => setNavVisible(prevState => !prevState)}>
-              <IoReorderThreeOutline className={styles.navDrawer} />
-            </div>
-          )}
-          <div className={styles.search}>
-            <CiSearch className={styles.searchIcon} />
-            <input type="text" className={styles.input} />
-          </div>
-        </div>
-        <div className={styles.headerUserInfo}>
-          <p className={styles.profile}>{user.profile}</p>
-          <p>
-            <UserAvatar name={user.name} />
-          </p>
-        </div>
-      </header>
+      <Header
+        navbarVisible={navVisible}
+        setNavbarVisible={setNavVisible}
+      />
     </div>
   )
 }
