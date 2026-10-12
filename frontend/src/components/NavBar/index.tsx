@@ -1,4 +1,4 @@
-import { MdKeyboardArrowLeft } from 'react-icons/md';
+import { MdKeyboardArrowLeft, MdOutlineLogout } from 'react-icons/md';
 import styles from './style.module.css';
 import { LuHouse } from 'react-icons/lu';
 import { LiaCarSideSolid } from 'react-icons/lia';
@@ -32,6 +32,11 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
               <li><BsWrenchAdjustableCircle className={styles.icon} /> Manutenção</li>
             </ul>
           </main>
+
+          <footer className={styles.footer}>
+              <MdOutlineLogout />
+              <p>Sair</p>
+          </footer>
         </div>
       )}
     </>

@@ -3,6 +3,8 @@
     height: 100vh;
     background-color: white;
     box-shadow: 0rem .1rem .1rem rgba(0, 0, 0, .6);
+    display: flex;
+    flex-direction: column;
 }
 
 .navHeader {
@@ -17,12 +19,12 @@
 .navHeader > h1 {
     font-family: var(--secondary-font);
     font-weight: 500;
-    font-size: clamp(2rem, 2vh, 3rem);
+    font-size: clamp(1.2rem, 2vh, 3rem);
 }
 
 .returnIcon {
     color: rgba(0, 0, 0, .6);
-    font-size: clamp(1.2rem, 6vw, 2rem);
+    font-size: clamp(1.2rem, 1.8vh, 2rem);
     cursor: pointer;
     transition: all 100ms ease-out;
     border-radius: 50%;
@@ -34,14 +36,16 @@
 }
 
 .content {
-    padding: 1.8rem;
-    font-family: '';
+    padding: 1.6rem;
+    box-sizing: border-box;
+    flex: 1;
 }
 
 .titleContent {
     color: var(--text-tertiary-color);
     font-weight: light;
-    font-size: clamp(.4rem, 1.2vh, 1.8rem);
+    font-size: clamp(.6rem, 1.2vh, 1.8rem);
+    padding: 0 1.2rem;
 }
 
 .sections {
@@ -55,22 +59,46 @@
 .sections > li {
     color: var(--text-secondary-color);
     font-size: clamp(.6rem, 1.2vh, 2rem);
-    padding: .8rem 1.2rem;
+    padding: .6rem 1.2rem;
     cursor: pointer;
     transition: all 100ms ease;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     gap: .8rem;
+    border-left: .2rem solid transparent;
 }
 
 .sections > li:hover {
     background-color: rgba(0, 0, 0, .1);
     color: var(--text-primary-color);
     font-weight: 600;
+    border-left: .2rem solid rgba(0, 0, 0, .3);
 }
 
 .icon {
     font-size: clamp(1rem, 2vh, 1.8rem);
+}
+
+.footer {
+    margin-top: auto;
+    border-top: .1rem solid rgba(0, 0, 0, .1);
+    padding: 1.6rem;
+    font-size: clamp(1.2rem, 2vh, 4rem);
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    transition: all 100ms ease;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: var(--text-tertiary-color);
+}
+
+
+.footer:hover {
+    border-top: .1rem solid rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .1);
+    color: var(--text-primary-color);
+    font-weight: 600;
 }
 
