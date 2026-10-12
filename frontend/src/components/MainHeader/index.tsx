@@ -4,7 +4,6 @@ import { CiSearch } from 'react-icons/ci';
 import { UserAvatar } from '../UserAvatar';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext/UserContext';
-import { AnimatePresence } from "motion/react";
 import { NavBar } from '../NavBar';
 
 
@@ -15,12 +14,10 @@ export function MainHeader() {
 
   return (
     <div className={styles.fixed}>
-      <AnimatePresence initial={false}>
-        <NavBar 
-          visible={navVisible} 
-          setVisible={setNavVisible} 
-        />
-      </AnimatePresence>
+      <NavBar
+        visible={navVisible}
+        setVisible={setNavVisible}
+      />
       <header className={styles.header}>
 
         <div className={styles.headerNavigation}>

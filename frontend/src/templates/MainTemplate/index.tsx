@@ -1,3 +1,4 @@
+import { MainHeader } from '../../components/MainHeader';
 import styles from './style.module.css';
 
 type MainTemplateProps = {
@@ -8,6 +9,7 @@ export function MainTemplate({ children }: MainTemplateProps) {
 
   return (
     <div className={styles.body}>
+      <MainHeader />
       {children}
     </div>
   );
