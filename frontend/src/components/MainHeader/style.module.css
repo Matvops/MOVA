@@ -57,42 +57,6 @@
     flex: 1;
 }
 
-.nav {
-    max-width: 20rem;
-    height: 100vh;
-    width: 20%;
-    z-index: 1;
-    background-color: white;
-    box-shadow: 0rem .1rem .1rem rgba(0, 0, 0, .6);
-}
-
-.navHeader {
-    padding: 1.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: .1rem solid rgba(0, 0, 0, .2);
-}
-
-.navHeader > h1 {
-    font-family: var(--secondary-font);
-    font-weight: 500;
-    font-size: clamp(1.2rem, 8vw, 2.4rem);
-}
-
-.returnIcon {
-    color: rgba(0, 0, 0, .6);
-    font-size: clamp(1.2rem, 6vw, 2rem);
-    cursor: pointer;
-    transition: all 100ms ease-out;
-    border-radius: 50%;
-}
-
-.returnIcon:hover {
-    color: black;
-    background-color: rgba(0, 0, 0, .1);
-}
-
 .fixed {
     position: fixed;
     left: 0;

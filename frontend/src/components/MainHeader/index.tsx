@@ -4,8 +4,8 @@ import { CiSearch } from 'react-icons/ci';
 import { UserAvatar } from '../UserAvatar';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext/UserContext';
-import { MdKeyboardArrowLeft } from 'react-icons/md';
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import { NavBar } from '../NavBar';
 
 
 export function MainHeader() {
@@ -16,21 +16,10 @@ export function MainHeader() {
   return (
     <div className={styles.fixed}>
       <AnimatePresence initial={false}>
-        {navVisible && (
-          <motion.div
-            initial={{ x: "-100vw", opacity: 1, scale: 1 }}
-            animate={{ x: 0, opacity: 1, scale: 1 }}
-            exit={{ x: "-100vw", opacity: 0, scale: 1 }}
-            transition={{type: 'tween', duration: 0.1}}
-            key={'nav'}
-            className={styles.nav}
-          >
-            <header className={styles.navHeader}>
-              <h1>MOVA</h1>
-              <MdKeyboardArrowLeft className={styles.returnIcon} onClick={() => setNavVisible(prevState => !prevState)} />
-            </header>
-          </motion.div>
-        )}
+        <NavBar 
+          visible={navVisible} 
+          setVisible={setNavVisible} 
+        />
       </AnimatePresence>
       <header className={styles.header}>
 
