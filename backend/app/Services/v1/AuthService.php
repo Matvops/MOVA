@@ -45,4 +45,17 @@ class AuthService {
             return Response::error("Erro inesperado ao realizar login");
         }   
     }
+
+    public function logout(string $id): Response
+    {
+        try {
+
+            $user = $this->userRepository->getById($id);
+            $user->tokens()->delete();
+
+            return Response::successfully('Logout realizado com sucesso');
+        } catch(Throwable $e) {
+            return Response::error('Erro ao realizar logout');
+        }
+    }
 }
