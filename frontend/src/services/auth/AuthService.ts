@@ -18,4 +18,25 @@ export class AuthService {
     }
   }
 
+  async logout(id: string) {
+    try {
+
+      const response = await api.post(
+        this.baseUrl + 'logout', 
+        {
+          user: id
+        }, 
+        {
+          headers: {
+            'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+          }
+        }
+      );
+
+      return response.data;
+    } catch (error: any) {
+      return error.response.data;
+    }
+  }
+
 }
