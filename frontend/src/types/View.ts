@@ -1,0 +1,1 @@
+export type View = 'dashboard' | 'automobiles' | 'clients' | 'rentals' | 'maintenances' | 'users' | 'profiles';
