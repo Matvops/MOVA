@@ -11,6 +11,7 @@ import { UserContext } from '../../contexts/UserContext/UserContext';
 import { initialUserValue } from '../../contexts/UserContext/initialUserValue';
 import { useNavigate } from 'react-router-dom';
 import { FaRegUser } from 'react-icons/fa';
+import { ViewContext } from '../../contexts/ViewContext/ViewContext';
 
 type NavBarProps = {
   visible: boolean,
@@ -21,7 +22,9 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
 
   const service = new AuthService;
   const { user, setUser } = useContext(UserContext);
+  const { view, setView } = useContext(ViewContext);
   const navigate = useNavigate();
+
 
   async function logout() {
     
@@ -50,13 +53,46 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
           <main className={styles.content}>
             <span className={styles.titleContent}>Navegação</span>
             <ul className={styles.sections}>
-              <li><LuHouse className={styles.icon} /> Operação</li>
-              {user.can('read:automobiles') && <li><LiaCarSideSolid className={styles.icon} /> Frota</li>}
-              {user.can('read:clients') && <li><FiUsers className={styles.icon} /> Clientes</li>}
-              {user.can('read:rentals') && <li><GrDocumentText className={styles.icon} /> Locações</li>}
-              {user.can('read:maintenances') && <li><BsWrenchAdjustableCircle className={styles.icon} /> Manutenção</li>}
-              {user.can('read:users') && <li><FaRegUser className={styles.icon} /> Usuários</li>}
-              {user.can('read:profiles') && <li><LuUserRoundCog className={styles.icon} /> Perfis</li>}
+
+              <li className={`${view === 'dashboard' ? styles.activeView : null}`} onClick={() => setView('dashboard')}>
+                <LuHouse className={styles.icon} /> Operação
+              </li>
+
+              {user.can('read:automobiles') && (
+                <li className={`${view === 'automobiles' ? styles.activeView : null}`} onClick={() => setView('automobiles')}>
+                  <LiaCarSideSolid className={styles.icon} /> Frota
+                </li>
+              )}
+
+              {user.can('read:clients') && (
+                <li className={`${view === 'clients' ? styles.activeView : null}`} onClick={() => setView('clients')}>
+                  <FiUsers className={styles.icon} /> Clientes
+                  </li>
+              )}
+
+              {user.can('read:rentals') && (
+                <li className={`${view === 'rentals' ? styles.activeView : null}`} onClick={() => setView('rentals')}>
+                  <GrDocumentText className={styles.icon} /> Locações
+                </li>
+              )}
+
+              {user.can('read:maintenances') && (
+                <li className={`${view === 'maintenances' ? styles.activeView : null}`} onClick={() => setView('maintenances')}>
+                  <BsWrenchAdjustableCircle className={styles.icon} /> Manutenção
+                </li>
+              )}
+
+              {user.can('read:users') && (
+                <li className={`${view === 'users' ? styles.activeView : null}`} onClick={() => setView('users')}>
+                  <FaRegUser className={styles.icon} /> Usuários
+                </li>
+              )}
+              {user.can('read:profiles') && (
+                <li className={`${view === 'profiles' ? styles.activeView : null}`} onClick={() => setView('profiles')}>
+                  <LuUserRoundCog className={styles.icon} /> Perfis
+                </li>
+              )}
+
             </ul>
           </main>
 
