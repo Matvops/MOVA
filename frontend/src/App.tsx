@@ -3,29 +3,31 @@ import { Login } from "./pages/Login";
 import { MainRouter } from "./routes/MainRouter";
 import { Dashboard } from "./pages/Dashboard";
 import { UserProvider } from "./contexts/UserContext/UserProvider";
+import { ViewProvider } from "./contexts/ViewContext/ViewProvider";
 
 export function App() {
 
   return (
     <main style={{ width: '100vw', height: '100vh' }}>
       <UserProvider>
-        <MainRouter>
+        <ViewProvider>
+          <MainRouter>
+            <Route
+              path="/"
+              element={<Login />}
+            />
 
-          <Route
-            path="/"
-            element={<Login />}
-          />
+            <Route
+              path="/dashboard"
+              element={<Dashboard />}
+            />
 
-          <Route
-            path="/dashboard"
-            element={<Dashboard />}
-          />
-
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-        </MainRouter>
+            <Route
+              path="/login"
+              element={<Login />}
+            />
+          </MainRouter>
+        </ViewProvider>
       </UserProvider>
     </main>
   );
