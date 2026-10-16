@@ -8,11 +8,10 @@ export function Dashboard() {
   const { user } = useContext(UserContext);
   return (
     <MainTemplate>
-      <div>
-        <header>
-          <span className={styles.now}>{new Date().toISOString()}</span>
-          <p className={styles.now}>Olá, {user.name}</p>
-          <p className={styles.now}>Perfil: {user.profile}</p>
+      <div className={styles.body}>
+        <header className={styles.contentHeader}>
+          <span className={styles.now}>{new Date().toLocaleDateString('pt-BR')}</span>
+          <p className={styles.title}>Olá, {user.name}</p>
         </header>
       </div>
     </MainTemplate>
