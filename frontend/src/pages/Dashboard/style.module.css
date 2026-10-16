@@ -27,7 +27,7 @@
 .contentBody {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
 }
 
 .cards {
@@ -48,6 +48,105 @@
 }
 
 .cardDescription {
-    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    font-size: clamp(1rem, 1vw, 1.4rem);
     color: var(--text-tertiary-color);
+}
+
+.returnsHeader {
+    display: flex;
+    align-items: end;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.returnsHeaderLegend {
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    font-weight: 500;
+}
+
+.returnsRedirect {
+    font-size: clamp(.8rem, .8vw, 1.2rem);
+    font-weight: 500;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 10ms;
+    transition-timing-function: ease-in;
+}
+
+.returnsRedirect:hover {
+    text-decoration: underline;
+    filter: brightness(90%);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    background-color: var(--surface);
+}
+
+.tableRow {
+    border: .1rem solid rgba(0, 0, 0, .1);
+    padding: 1rem;
+}
+
+.tableHeader {
+    font-size: clamp(.6rem, .8vw, 1rem);
+    color: var(--text-tertiary-color);
+    padding: 1rem;
+    text-align: start;
+}
+
+.tableData {
+    font-size: clamp(.8rem, .8vw, 1.2rem);
+    padding: 1rem;
+    text-align: start;
+}
+
+.callActionReturns {
+    color: var(--secondary-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 10ms;
+    transition-timing-function: ease-in;
+}
+
+.callActionReturns:hover {
+    text-decoration: underline;
+    filter: brightness(90%);
+}
+
+.rentalsWarningHeader {
+    margin-bottom: 1rem;
+}
+
+.rentalsWarningHeaderLegend {
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    font-weight: 500;
+}
+
+.callActionRentalsWarning {
+    color: var(--red);
+    font-weight: 500;
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 10ms;
+    transition-timing-function: ease-in;
+}
+
+.callActionRentalsWarning:hover {
+    text-decoration: underline;
+    filter: brightness(90%);
+}
+
+.statusAutomobilesHeader {
+    margin-bottom: 1rem;
+}
+
+.statusAutomobilesHeaderLegend {
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    font-weight: 500;
 }
