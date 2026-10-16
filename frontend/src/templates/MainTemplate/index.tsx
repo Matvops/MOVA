@@ -24,8 +24,8 @@ export function MainTemplate({ children }: MainTemplateProps) {
         setVisible={setNavVisible}
       />
 
-    <div className={styles.body}>
-      {children}
+      <div className={styles.body}>
+        {children}
       </div>
     </div>
   );

@@ -8,6 +8,10 @@
     width: 100%;
     box-shadow: .1rem 0 .1rem rgba(0, 0, 0, 0.8);
     max-height: 8vh !important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
 }   
 
 .headerUserInfo {
@@ -58,4 +62,9 @@
     flex: 1;
     font-size: clamp(.4rem, 1.2vh, 2rem);
     padding-left: .8rem;
+}
+
+.navDrawerHidden {
+    left: clamp(15rem, 12vw, 90rem);
+    width: clamp(20%, 88vw, 100%)
 }

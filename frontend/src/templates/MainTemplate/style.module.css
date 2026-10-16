@@ -7,8 +7,12 @@
     top: 0;
     left: 0;
     display: flex;
+    width: 100%;
 }
 
 .body {
     margin-top: 8vh;
+    padding: 4rem;
+    box-sizing: border-box;
+    flex: 1;
 }
