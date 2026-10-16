@@ -15,7 +15,7 @@ export function Header({ navbarVisible, setNavbarVisible }: HeaderProps) {
   const { user } = useContext(UserContext);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${navbarVisible === true ? styles.navDrawerHidden : ''}`}>
       <div className={styles.headerNavigation}>
         {!navbarVisible && (
           <div onClick={() => setNavbarVisible(prevState => !prevState)}>
