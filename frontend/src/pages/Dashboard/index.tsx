@@ -155,6 +155,27 @@ export function Dashboard() {
 
               <div className={styles.statusAutomobilesCard}>
                 <progress value={0.5} className={styles.statusAutomobilesProgressBar} />
+
+                <ul className={styles.listStatus}>
+                  <li className={styles.listStatusItem}>
+                    <p className={`${styles.status} ${styles.statusAvailable}`}>Disponível</p>
+                    <p className={styles.quantityStatus}>4</p>
+                  </li>
+                  <li className={styles.listStatusItem}>
+                    <p className={`${styles.status} ${styles.statusRented}`}>Alugado</p>
+                    <p className={styles.quantityStatus}>2</p>
+                  </li>
+                  <li className={styles.listStatusItem}>
+                    <p className={`${styles.status} ${styles.statusMaintenance}`}>Em manutenção</p>
+                    <p className={styles.quantityStatus}>1</p>
+                  </li>
+                  <li className={styles.listStatusItem}>
+                    <p className={`${styles.status} ${styles.statusInactive}`}>Inativo</p>
+                    <p className={styles.quantityStatus}>1</p>
+                  </li>
+                </ul>
+
+                <p className={styles.callActionAutomobiles}>Ver frota completa</p>
               </div>
             </section>
           </Container>
