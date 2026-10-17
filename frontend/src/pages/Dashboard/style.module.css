@@ -150,3 +150,8 @@
     font-size: clamp(1rem, 1vw, 1.4rem);
     font-weight: 500;
 }
+
+.statusAutomobilesCard {
+    width: 100%;
+    background-color: red;
+}
