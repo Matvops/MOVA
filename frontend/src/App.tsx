@@ -4,6 +4,7 @@ import { MainRouter } from "./routes/MainRouter";
 import { Dashboard } from "./pages/Dashboard";
 import { UserProvider } from "./contexts/UserContext/UserProvider";
 import { ViewProvider } from "./contexts/ViewContext/ViewProvider";
+import { Profiles } from "./pages/Profiles";
 
 export function App() {
 
@@ -20,6 +21,11 @@ export function App() {
             <Route
               path="/dashboard"
               element={<Dashboard />}
+            />
+
+            <Route
+              path="/profiles"
+              element={<Profiles />}
             />
 
             <Route
