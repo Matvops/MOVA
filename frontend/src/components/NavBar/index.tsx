@@ -12,6 +12,7 @@ import { initialUserValue } from '../../contexts/UserContext/initialUserValue';
 import { useNavigate } from 'react-router-dom';
 import { FaRegUser } from 'react-icons/fa';
 import { ViewContext } from '../../contexts/ViewContext/ViewContext';
+import type { View } from '../../types/View';
 
 type NavBarProps = {
   visible: boolean,
@@ -27,7 +28,6 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
 
 
   async function logout() {
-    
 
     const response = await service.logout(user.user);
 
@@ -39,6 +39,12 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
     sessionStorage.removeItem('token');
     setUser(initialUserValue);
     navigate('/');  
+  }
+
+
+  function goTo(view: View) {
+    setView(view);
+    navigate('/' + view);
   }
 
   return (
@@ -54,41 +60,41 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
             <span className={styles.titleContent}>Navegação</span>
             <ul className={styles.sections}>
 
-              <li className={`${view === 'dashboard' ? styles.activeView : null}`} onClick={() => setView('dashboard')}>
+              <li className={`${view === 'dashboard' ? styles.activeView : null}`} onClick={() => goTo('dashboard')}>
                 <LuHouse className={styles.icon} /> Operação
               </li>
 
               {user.can('read:automobiles') && (
-                <li className={`${view === 'automobiles' ? styles.activeView : null}`} onClick={() => setView('automobiles')}>
+                <li className={`${view === 'automobiles' ? styles.activeView : null}`} onClick={() => goTo('automobiles')}>
                   <LiaCarSideSolid className={styles.icon} /> Frota
                 </li>
               )}
 
               {user.can('read:clients') && (
-                <li className={`${view === 'clients' ? styles.activeView : null}`} onClick={() => setView('clients')}>
+                <li className={`${view === 'clients' ? styles.activeView : null}`} onClick={() => goTo('clients')}>
                   <FiUsers className={styles.icon} /> Clientes
                   </li>
               )}
 
               {user.can('read:rentals') && (
-                <li className={`${view === 'rentals' ? styles.activeView : null}`} onClick={() => setView('rentals')}>
+                <li className={`${view === 'rentals' ? styles.activeView : null}`} onClick={() => goTo('rentals')}>
                   <GrDocumentText className={styles.icon} /> Locações
                 </li>
               )}
 
               {user.can('read:maintenances') && (
-                <li className={`${view === 'maintenances' ? styles.activeView : null}`} onClick={() => setView('maintenances')}>
+                <li className={`${view === 'maintenances' ? styles.activeView : null}`} onClick={() => goTo('maintenances')}>
                   <BsWrenchAdjustableCircle className={styles.icon} /> Manutenção
                 </li>
               )}
 
               {user.can('read:users') && (
-                <li className={`${view === 'users' ? styles.activeView : null}`} onClick={() => setView('users')}>
+                <li className={`${view === 'users' ? styles.activeView : null}`} onClick={() => goTo('users')}>
                   <FaRegUser className={styles.icon} /> Usuários
                 </li>
               )}
               {user.can('read:profiles') && (
-                <li className={`${view === 'profiles' ? styles.activeView : null}`} onClick={() => setView('profiles')}>
+                <li className={`${view === 'profiles' ? styles.activeView : null}`} onClick={() => goTo('profiles')}>
                   <LuUserRoundCog className={styles.icon} /> Perfis
                 </li>
               )}
