@@ -9,7 +9,7 @@ type MainTemplateProps = {
 
 export function MainTemplate({ children }: MainTemplateProps) {
 
-  const [navVisible, setNavVisible] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
 
   return (
     <div className={styles.template}>
