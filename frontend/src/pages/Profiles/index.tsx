@@ -1,8 +1,9 @@
-import { FiPlus } from "react-icons/fi";
 import { MainTemplate } from "../../templates/MainTemplate";
 import styles from './style.module.css';
 import { InputDefault } from "../../components/InputDefault";
 import { useState } from "react";
+import { ProfileCards } from "../../components/ProfileCards";
+import { PageHeader } from "../../components/PageHeader";
 
 export function Profiles() {
 
@@ -13,16 +14,11 @@ export function Profiles() {
   return (
     <MainTemplate>
       <div className={styles.content}>
-        <header className={styles.contentHeader}>
-          <div>
-            <span className={styles.desc}>Administração</span>
-            <p className={styles.title}>Perfis e permissões</p>
-          </div>
-
-          <button className={styles.button} type="button">
-            <FiPlus className={styles.plusIcon} /> Novo perfil
-          </button>
-        </header>
+        <PageHeader 
+          title="Perfis e permissões"
+          description="Administração"
+          buttonContent="Novo perfil"
+        />
 
         <main className={styles.content}>
           <section>
@@ -33,29 +29,8 @@ export function Profiles() {
           </section>
 
           <section className={styles.parameterizations}>
-            <div className={styles.cardsProfile}>
-              <div className={styles.cardProfile}>
-                <div className={styles.cardProfileContent}>
-                  <h2 className={styles.profile}>Atendente</h2>
-                  <p className={styles.profileAbilities}>8 de 17 permissões</p>
-                </div>
-                <p className={styles.usersPeerProfile}>3 Usuários</p>
-              </div>
-              <div className={styles.cardProfile}>
-                <div className={styles.cardProfileContent}>
-                  <h2 className={styles.profile}>Gestor</h2>
-                  <p className={styles.profileAbilities}>8 de 17 permissões</p>
-                </div>
-                <p className={styles.usersPeerProfile}>2 Usuários</p>
-              </div>
-              <div className={styles.cardProfile}>
-                <div className={styles.cardProfileContent}>
-                  <h2 className={styles.profile}>Administrador</h2>
-                  <p className={styles.profileAbilities}>8 de 17 permissões</p>
-                </div>
-                <p className={styles.usersPeerProfile}>1 Usuários</p>
-              </div>
-            </div>
+            
+            <ProfileCards />
 
             <form className={styles.form}>
               <div className={styles.input}>
@@ -77,6 +52,7 @@ export function Profiles() {
                   handleValue={(e) => setDescription(e.target.value)}
                 />
               </div>
+             
             </form>
           </section>
         </main>
