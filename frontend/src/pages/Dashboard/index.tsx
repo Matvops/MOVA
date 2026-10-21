@@ -3,6 +3,7 @@ import { MainTemplate } from '../../templates/MainTemplate';
 import styles from './style.module.css';
 import { UserContext } from '../../contexts/UserContext/UserContext';
 import { Container } from '../../components/Container';
+import { PageHeader } from '../../components/PageHeader';
 
 export function Dashboard() {
 
@@ -10,10 +11,10 @@ export function Dashboard() {
   return (
     <MainTemplate>
       <div className={styles.content}>
-        <header className={styles.contentHeader}>
-          <span className={styles.now}>{new Date().toLocaleDateString('pt-BR')}</span>
-          <p className={styles.title}>Olá, {user.name}</p>
-        </header>
+        <PageHeader
+          title={`Olá, ${user.name}`}
+          description={new Date().toLocaleDateString('pt-BR')}
+        />
 
         <main className={styles.contentBody}>
           <Container>

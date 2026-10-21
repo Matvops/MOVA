@@ -16,7 +16,7 @@ export function PageHeader({ title, description, buttonContent }: PageHeaderProp
         <p className={styles.title}>{title}</p>
       </div>
 
-      {description && (
+      {buttonContent && (
         <button className={styles.button} type="button">
           <FiPlus className={styles.plusIcon} /> {buttonContent}
         </button>
