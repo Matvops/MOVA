@@ -1,0 +1,130 @@
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.desc {
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    color: var(--text-tertiary-color);
+    font-weight: 500;
+}
+
+.contentHeader {
+    padding-bottom: 2rem;
+    width: 100%;
+    box-shadow: 0 .1rem .1rem rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: clamp(1.6rem, 1.6vw, 2rem);
+    font-family: var(--primary-font);
+    font-weight: 600;
+    padding-top: .8rem;
+}
+
+.button {
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    padding: .4rem 1.4rem;
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    color: white;
+    border: 0;
+    outline: none;
+    border-radius: .2rem;
+    cursor: pointer;
+    transition: all;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
+    display: flex;
+    gap: .2rem;
+    align-items: center;
+}
+
+.button:hover {
+    filter: brightness(90%);
+    box-shadow: 0 0 .1rem black;
+}
+
+.plusIcon {
+    width: clamp(1.6rem, 1.4vw, 2rem);
+    height: clamp(1.6rem, 1.4vh, 2rem);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.descriptionContent {
+    font-size: clamp(1.1rem, .7vw, 1.4rem);
+    color: var(--text-secondary-color);
+}
+
+.parameterizations {
+    display: flex;
+    width: 100%;
+    gap: 6rem;
+    flex-wrap: wrap;
+}
+
+.cardsProfile {
+    width: clamp(16rem, 18vw, 25rem);
+    box-shadow: 0 0 .1rem rgba(0, 0, 0, .5);
+}
+
+.cardProfile:not(:nth-child(3)) {
+    border-bottom: .1rem solid rgba(0, 0, 0, .1);
+}
+
+.cardProfile {
+    background-color: var(--surface);
+    box-sizing: border-box;
+    padding: 1.6rem;
+    text-align: start;
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardProfile:hover {
+    filter: brightness(90%);
+}
+
+.cardProfileContent {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.profile {
+    font-size: clamp(1.2rem, 1.4vw, 1.6rem);
+}
+
+.profileAbilities {
+    font-size: clamp(.8rem, .8vw, 1.2rem);
+    color: var(--text-secondary-color);
+}
+
+.usersPeerProfile {
+    font-size: clamp(.6rem, .8vw, 1rem);
+    color: var(--text-tertiary-color);
+}
+
+.form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.input {
+    width: clamp(16rem, 50vw, 50rem);
+}
