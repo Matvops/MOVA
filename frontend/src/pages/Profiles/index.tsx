@@ -4,6 +4,7 @@ import { InputDefault } from "../../components/InputDefault";
 import { useState } from "react";
 import { ProfileCards } from "../../components/ProfileCards";
 import { PageHeader } from "../../components/PageHeader";
+import { TabPanel } from "../../components/TabPanel";
 
 export function Profiles() {
 
@@ -53,6 +54,7 @@ export function Profiles() {
                 />
               </div>
              
+             <TabPanel />
             </form>
           </section>
         </main>

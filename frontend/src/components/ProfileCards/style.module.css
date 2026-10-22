@@ -1,6 +1,7 @@
 .cardsProfile {
     width: clamp(16rem, 18vw, 25rem);
     box-shadow: 0 0 .1rem rgba(0, 0, 0, .5);
+    height: fit-content;
 }
 
 .cardProfile:not(:nth-child(3)) {
