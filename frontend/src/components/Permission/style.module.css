@@ -1,0 +1,30 @@
+.permission {
+    display: flex;
+    gap: 1.6rem;
+    width: 100%;
+    border-bottom: .1rem solid rgba(0, 0, 0, .1);
+}
+
+.permissionCheck {
+    cursor: pointer;
+    width: clamp(1rem, 1vw, 1.6rem);
+    accent-color: var(--secondary-color);
+}
+
+.permissionContent {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    padding: 2rem 0;
+}
+
+.permissionTitle {
+    font-size: clamp(1em, 1.2vw, 1.6rem);
+    font-weight: 400;
+}
+
+.permissionDescription {
+    font-size: clamp(.8rem, 1vw, 1.2rem);
+    color: var(--text-secondary-color);
+    font-weight: 400;
+}
