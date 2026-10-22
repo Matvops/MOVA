@@ -1,0 +1,35 @@
+.permissions {
+    width: 80%;
+}
+
+.permissionHeader {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .1rem solid rgba(0, 0, 0, .2);
+    padding: 4rem 0 1rem;
+}
+
+.permissionHeaderTitle {
+    font-size: clamp(1em, 1.2vw, 1.6rem);
+    font-weight: 600;
+}
+
+.permissionHeaderCheckAll {
+    font-size: clamp(.6em, 1.2vw, 1.2rem);
+    font-weight: 500;
+    background-color: var(--background-primary-color);
+    border: 0;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
+}
+
+.permissionHeaderCheckAll:hover {
+    filter: brightness(70%);
+}
+
+.listPermissions {
+    width: 100%;
+}
