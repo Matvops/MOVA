@@ -5,14 +5,14 @@ type ProfileCardsType = {
   profiles: Profile[],
   totalQuantityAbilities: number,
   selectedProfile: Profile|undefined,
-  setSelectedProfile: React.Dispatch<React.SetStateAction<Profile | undefined>>
+  handleProfile: (profile: Profile) => void
 }
 
 export function ProfileCards({ 
   profiles, 
   totalQuantityAbilities,
   selectedProfile,
-  setSelectedProfile  
+  handleProfile  
 }: ProfileCardsType) {
 
   const listProfiles = () => {
@@ -24,7 +24,7 @@ export function ProfileCards({
       return (
         <div 
           className={`${styles.cardProfile} ${selectedProfile?.id === profile.id ? styles.selectedProfile : ''}`} 
-          onClick={() => setSelectedProfile(profile)}>
+          onClick={() => handleProfile(profile)}>
           <div className={styles.cardProfileContent}>
             <h2 className={styles.profile}>{name}</h2>
             <p className={styles.profileAbilities}>

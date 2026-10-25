@@ -20,7 +20,6 @@ export function Profiles() {
   const { setView } = useContext(ViewContext);
   
   const [profileName, setProfileName] = useState('');
-  const [description, setDescription] = useState('');
 
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [abilities, setAbilities] = useState<string[]>([]);
@@ -43,6 +42,8 @@ export function Profiles() {
       response.data?.profiles?.forEach((profileReturned: object) => {
         setProfiles(prevState => [...prevState, profile(profileReturned)])
       })
+
+      handleProfile(profiles[0]);
     }
 
     const getAbilities = async () => {
@@ -64,6 +65,10 @@ export function Profiles() {
     getAbilities();
   }, []);
 
+  function handleProfile(profile: Profile){
+    setSelectedProfile(profile);
+    setProfileName(profile.name);
+  }
 
   return (
     <MainTemplate>
@@ -88,7 +93,7 @@ export function Profiles() {
               profiles={profiles}
               totalQuantityAbilities={abilities?.length}
               selectedProfile={selectedProfile}
-              setSelectedProfile={setSelectedProfile}
+              handleProfile={handleProfile}
             />
 
             <form className={styles.form}>
@@ -99,16 +104,6 @@ export function Profiles() {
                   type="text"
                   autoComplete="off"
                   handleValue={(e) => setProfileName(e.target.value)}
-                />
-              </div>
-
-              <div className={styles.input}>
-                <InputDefault
-                  label="Descrição"
-                  value={description}
-                  type="text"
-                  autoComplete="off"
-                  handleValue={(e) => setDescription(e.target.value)}
                 />
               </div>
 
