@@ -20,4 +20,21 @@ export class ProfileService {
             return error.response.data;
         }
     }
+
+    async getAbilities() {
+        try {
+
+            const response = await api.get(this.baseUrl + 'profile/abilities',
+                {
+                    headers: {
+                        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                    }
+                }
+            ).then((response) => response.data);
+
+            return response;
+        } catch (error: any) {
+            return error.response.data;
+        }
+    }
 }
