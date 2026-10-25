@@ -19,4 +19,9 @@ class ProfileController extends Controller
         $response = $this->service->getProfiles();
         return $this->sendResponse($response);
     }
+
+    public function getAbilities() {
+        $response = $this->service->getAbilities();
+        return $this->sendResponse($response);
+    }
 }
