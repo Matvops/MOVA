@@ -1,30 +1,37 @@
+import type { Profile } from '../../interfaces/Profile';
 import styles from './style.module.css';
 
-export function ProfileCards() {
+type ProfileCardsType = {
+  profiles: Profile[],
+  totalQuantityAbilities: number
+}
+
+export function ProfileCards({ profiles, totalQuantityAbilities }: ProfileCardsType) {
+
+  const listProfiles = () => {
+
+    return profiles?.map(profile => {
+
+      const name = profile.name.charAt(0) + profile.name.slice(1).toLowerCase();
+      
+      return (
+        <div className={styles.cardProfile}>
+          <div className={styles.cardProfileContent}>
+            <h2 className={styles.profile}>{name}</h2>
+            <p className={styles.profileAbilities}>
+              {profile.abilities?.length} de {totalQuantityAbilities} permissões
+            </p>
+          </div>
+          <p className={styles.usersPeerProfile}>{profile.users?.length} Usuários</p>
+        </div>
+      );
+    });
+
+  }
 
   return (
     <div className={styles.cardsProfile}>
-      <div className={styles.cardProfile}>
-        <div className={styles.cardProfileContent}>
-          <h2 className={styles.profile}>Atendente</h2>
-          <p className={styles.profileAbilities}>8 de 17 permissões</p>
-        </div>
-        <p className={styles.usersPeerProfile}>3 Usuários</p>
-      </div>
-      <div className={styles.cardProfile}>
-        <div className={styles.cardProfileContent}>
-          <h2 className={styles.profile}>Gestor</h2>
-          <p className={styles.profileAbilities}>8 de 17 permissões</p>
-        </div>
-        <p className={styles.usersPeerProfile}>2 Usuários</p>
-      </div>
-      <div className={styles.cardProfile}>
-        <div className={styles.cardProfileContent}>
-          <h2 className={styles.profile}>Administrador</h2>
-          <p className={styles.profileAbilities}>8 de 17 permissões</p>
-        </div>
-        <p className={styles.usersPeerProfile}>1 Usuários</p>
-      </div>
+      {listProfiles()}
     </div>
   );
 }
