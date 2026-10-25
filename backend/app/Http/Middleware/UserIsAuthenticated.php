@@ -35,7 +35,7 @@ class UserIsAuthenticated
             ], 401);
         }
 
-        $token = substr(str_replace('Bearer ', '', $token), 3);
+        $token = substr(str_replace('Bearer ', '', $token), 4);
 
         $tokenExists = PersonalAccessToken::findToken($token);
 
