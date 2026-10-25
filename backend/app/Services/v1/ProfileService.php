@@ -17,6 +17,8 @@ class ProfileService {
     public function getProfiles(): Response
     {
         $profiles = $this->profileRepository->getAll();
-        return Response::successfully("Perfis consultados com sucesso", $profiles->toArray());
+        return Response::successfully("Perfis consultados com sucesso", [
+            'profiles' => $profiles->toArray()
+        ]);
     }
 }
