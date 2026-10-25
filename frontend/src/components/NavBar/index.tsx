@@ -38,6 +38,7 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
 
     sessionStorage.removeItem('token');
     setUser(initialUserValue);
+    setView('dashboard');
     navigate('/');  
   }
 
