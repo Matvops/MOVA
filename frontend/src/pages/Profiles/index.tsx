@@ -24,6 +24,8 @@ export function Profiles() {
 
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [abilities, setAbilities] = useState<string[]>([]);
+  
+  const [selectedProfile, setSelectedProfile] = useState<Profile>();
 
   useEffect(() => {
 
@@ -85,6 +87,8 @@ export function Profiles() {
             <ProfileCards
               profiles={profiles}
               totalQuantityAbilities={abilities?.length}
+              selectedProfile={selectedProfile}
+              setSelectedProfile={setSelectedProfile}
             />
 
             <form className={styles.form}>

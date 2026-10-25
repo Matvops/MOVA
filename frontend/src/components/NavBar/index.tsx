@@ -33,7 +33,6 @@ export function NavBar({ visible, setVisible }: NavBarProps) {
 
     if(response.status === false) {
       alert(response.message);
-      return;
     }
 
     sessionStorage.removeItem('token');

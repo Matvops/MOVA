@@ -21,7 +21,7 @@
     justify-content: space-between;
 }
 
-.cardProfile:hover {
+.cardProfile:hover, .selectedProfile {
     filter: brightness(90%);
 }
 
@@ -43,4 +43,8 @@
 .usersPeerProfile {
     font-size: clamp(.6rem, .8vw, 1rem);
     color: var(--text-tertiary-color);
+}
+
+.selectedProfile {
+    border-left: .2rem solid var(--primary-color);
 }

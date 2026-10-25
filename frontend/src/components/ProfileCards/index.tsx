@@ -3,10 +3,17 @@ import styles from './style.module.css';
 
 type ProfileCardsType = {
   profiles: Profile[],
-  totalQuantityAbilities: number
+  totalQuantityAbilities: number,
+  selectedProfile: Profile|undefined,
+  setSelectedProfile: React.Dispatch<React.SetStateAction<Profile | undefined>>
 }
 
-export function ProfileCards({ profiles, totalQuantityAbilities }: ProfileCardsType) {
+export function ProfileCards({ 
+  profiles, 
+  totalQuantityAbilities,
+  selectedProfile,
+  setSelectedProfile  
+}: ProfileCardsType) {
 
   const listProfiles = () => {
 
@@ -15,7 +22,9 @@ export function ProfileCards({ profiles, totalQuantityAbilities }: ProfileCardsT
       const name = profile.name.charAt(0) + profile.name.slice(1).toLowerCase();
       
       return (
-        <div className={styles.cardProfile}>
+        <div 
+          className={`${styles.cardProfile} ${selectedProfile?.id === profile.id ? styles.selectedProfile : ''}`} 
+          onClick={() => setSelectedProfile(profile)}>
           <div className={styles.cardProfileContent}>
             <h2 className={styles.profile}>{name}</h2>
             <p className={styles.profileAbilities}>
