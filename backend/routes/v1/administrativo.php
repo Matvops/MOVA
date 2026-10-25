@@ -6,4 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(UserIsAuthenticated::class)->prefix('profile')->group(function() {
     Route::get('all', [ProfileController::class, 'getAll']);
+    Route::get('abilities', [ProfileController::class, 'getAbilities']);
 });
