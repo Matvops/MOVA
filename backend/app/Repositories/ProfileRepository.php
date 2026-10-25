@@ -12,4 +12,9 @@ class ProfileRepository {
     {
         return Profile::all();
     }
+
+    public function getById(int $id): ?Profile 
+    {
+        return Profile::find($id);
+    }
 }
