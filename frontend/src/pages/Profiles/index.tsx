@@ -1,21 +1,72 @@
 import { MainTemplate } from "../../templates/MainTemplate";
 import styles from './style.module.css';
 import { InputDefault } from "../../components/InputDefault";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProfileCards } from "../../components/ProfileCards";
 import { PageHeader } from "../../components/PageHeader";
 import { TabPanel } from "../../components/TabPanel";
+import { ProfileService } from "../../services/administrativo/ProfileService";
+import { useNavigate } from "react-router-dom";
+import { ViewContext } from "../../contexts/ViewContext/ViewContext";
+import type { Profile } from "../../interfaces/Profile";
+import { profile } from "../../mappers/profile";
+
+const profileService = new ProfileService;
 
 export function Profiles() {
 
+  const navigate = useNavigate();
+
+  const { setView } = useContext(ViewContext);
+  
   const [profileName, setProfileName] = useState('');
   const [description, setDescription] = useState('');
+
+  const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [abilities, setAbilities] = useState<string[]>([]);
+
+  useEffect(() => {
+
+
+    const getProfiles = async () => {
+
+      const response = await profileService.getAll();
+
+      if(response.status === false) {
+        alert(response.message);
+        setView('dashboard');
+        navigate('/dashboard');
+      }
+
+      response.data?.profiles?.forEach((profileReturned: object) => {
+        setProfiles(prevState => [...prevState, profile(profileReturned)])
+      })
+    }
+
+    const getAbilities = async () => {
+
+      const response = await profileService.getAbilities();
+
+      if(response.status === false) {
+        alert(response.message);
+        setView('dashboard');
+        navigate('/dashboard');
+      }
+
+      response.data?.abilities?.forEach((abilitieReturned: string) => {
+        setAbilities(prevState => [...prevState, abilitieReturned])
+      })
+    }
+
+    getProfiles();
+    getAbilities();
+  }, []);
 
 
   return (
     <MainTemplate>
       <div className={styles.content}>
-        <PageHeader 
+        <PageHeader
           title="Perfis e permissões"
           description="Administração"
           buttonContent="Novo perfil"
@@ -30,8 +81,11 @@ export function Profiles() {
           </section>
 
           <section className={styles.parameterizations}>
-            
-            <ProfileCards />
+
+            <ProfileCards
+              profiles={profiles}
+              totalQuantityAbilities={abilities?.length}
+            />
 
             <form className={styles.form}>
               <div className={styles.input}>
@@ -53,8 +107,8 @@ export function Profiles() {
                   handleValue={(e) => setDescription(e.target.value)}
                 />
               </div>
-             
-             <TabPanel />
+
+              <TabPanel />
             </form>
           </section>
         </main>
