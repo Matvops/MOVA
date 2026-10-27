@@ -26,6 +26,8 @@ export function Profiles() {
 
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [abilities, setAbilities] = useState<string[]>([]);
+  const [newAbilities, setNewAbilities] = useState<string[]>([]);
+
 
   const [selectedProfile, setSelectedProfile] = useState<Profile>();
 
@@ -119,7 +121,7 @@ export function Profiles() {
               >
                 <Tab title="Permissões">
                   <div>
-                    <p className={styles.numberOfActivePermissions}>8 de 17 permissões ativas</p>
+                    <p className={styles.numberOfActivePermissions}>{selectedProfile?.abilities?.length} de {abilities?.length} permissões ativas</p>
                     <Permissions title='Frota'>
                       <Permission
                         title='Consultar frota'
@@ -219,7 +221,7 @@ export function Profiles() {
                   </div>
                 </Tab>
 
-                <Tab title="Usuários vinculados (3)">
+                <Tab title={`Usuários vinculados (${selectedProfile?.users?.length})`}>
                   <div>
                     
                   </div>
