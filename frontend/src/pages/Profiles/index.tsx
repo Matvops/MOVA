@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 import { ViewContext } from "../../contexts/ViewContext/ViewContext";
 import type { Profile } from "../../interfaces/Profile";
 import { profile } from "../../mappers/profile";
+import { Tab } from "../../components/Tab";
+import { Permissions } from "../../components/Permissions";
+import { Permission } from "../../components/Permission";
 
 const profileService = new ProfileService;
 
@@ -18,13 +21,15 @@ export function Profiles() {
   const navigate = useNavigate();
 
   const { setView } = useContext(ViewContext);
-  
+
   const [profileName, setProfileName] = useState('');
 
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [abilities, setAbilities] = useState<string[]>([]);
-  
+
   const [selectedProfile, setSelectedProfile] = useState<Profile>();
+
+  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
 
@@ -33,7 +38,7 @@ export function Profiles() {
 
       const response = await profileService.getAll();
 
-      if(response.status === false) {
+      if (response.status === false) {
         alert(response.message);
         setView('dashboard');
         navigate('/dashboard');
@@ -43,14 +48,14 @@ export function Profiles() {
         setProfiles(prevState => [...prevState, profile(profileReturned)])
       })
 
-      handleProfile(profiles[0]);
+      handleProfile(profile(response.data.profiles[0]));
     }
 
     const getAbilities = async () => {
 
       const response = await profileService.getAbilities();
 
-      if(response.status === false) {
+      if (response.status === false) {
         alert(response.message);
         setView('dashboard');
         navigate('/dashboard');
@@ -65,7 +70,8 @@ export function Profiles() {
     getAbilities();
   }, []);
 
-  function handleProfile(profile: Profile){
+
+  function handleProfile(profile: Profile) {
     setSelectedProfile(profile);
     setProfileName(profile.name);
   }
@@ -107,7 +113,118 @@ export function Profiles() {
                 />
               </div>
 
-              <TabPanel />
+              <TabPanel
+                activeIndex={activeTab}
+                setActiveIndex={setActiveTab}
+              >
+                <Tab title="Permissões">
+                  <div>
+                    <p className={styles.numberOfActivePermissions}>8 de 17 permissões ativas</p>
+                    <Permissions title='Frota'>
+                      <Permission
+                        title='Consultar frota'
+                        description='Ver a lista de veículos, status e histórico.'
+                      />
+
+                      <Permission
+                        title='Cadastrar veículos'
+                        description='Adicionar novos veículos à frota. Requer: consultar frota.'
+                      />
+
+                      <Permission
+                        title='Editar veículos'
+                        description='Alterar dados, diária e disponibilidade. Requer: consultar frota.'
+                      />
+                    </Permissions>
+
+                    <Permissions title='Manutenção'>
+                      <Permission
+                        title='Consultar manutenções'
+                        description='Ver ordens de manutenção e histórico'
+                      />
+
+                      <Permission
+                        title='Registrar manutenção'
+                        description='Enviar veículo para manutenção. Requer: consultar manutenções, consultar frota.'
+                      />
+                    </Permissions>
+
+                    <Permissions title='Clientes'>
+                      <Permission
+                        title='Consultar clientes'
+                        description='Ver cadastro e histórico de locações.'
+                      />
+
+                      <Permission
+                        title='Cadastrar clientes'
+                        description='Incluir novos clientes. Requer: consultar clientes.'
+                      />
+
+                      <Permission
+                        title='Editar clientes'
+                        description='Alterar dados cadastrais. Requer: consultar clientes.'
+                      />
+                    </Permissions>
+
+                    <Permissions title='Locações'>
+                      <Permission
+                        title='Consultar locações'
+                        description='Ver cadastro e histórico de locações.'
+                      />
+
+                      <Permission
+                        title='Criar locações e reservas'
+                        description='Incluir novos clientes. Requer: consultar clientes.'
+                      />
+
+                      <Permission
+                        title='Registrar devoluções'
+                        description='Informar km, combustível e avarias. Requer: consultar locações.'
+                      />
+
+                      <Permission
+                        title='Cancelar locações'
+                        description='Cancelar locações reservadas ou em andamento. Requer: consultar locações.'
+                      />
+                    </Permissions>
+
+                    <Permissions title='Operação'>
+                      <Permission
+                        title='Ver pendências e indicadores'
+                        description='Locações atrasadas e visão gerencial na tela de Operação.'
+                      />
+                    </Permissions>
+
+                    <Permissions title='Administração'>
+                      <Permission
+                        title='Consultar usuários'
+                        description='Ver contas e perfis vinculados.'
+                      />
+
+                      <Permission
+                        title='Gerenciar usuários'
+                        description='Criar, editar e inativar contas. Requer: consultar usuários.'
+                      />
+
+                      <Permission
+                        title='Consultar perfis'
+                        description='Ver perfis e suas permissões.'
+                      />
+
+                      <Permission
+                        title='Gerenciar perfis'
+                        description='Criar perfis, editar permissões e vincular usuários. Requer: consultar perfis, consultar usuários.'
+                      />
+                    </Permissions>
+                  </div>
+                </Tab>
+
+                <Tab title="Usuários vinculados (3)">
+                  <div>
+                    
+                  </div>
+                </Tab>
+              </TabPanel>
             </form>
           </section>
         </main>

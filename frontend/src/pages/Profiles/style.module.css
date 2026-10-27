@@ -34,3 +34,9 @@
 .input {
     width: clamp(16rem, 50vw, 50rem);
 }
+
+.numberOfActivePermissions {
+    color: var(--text-tertiary-color);
+    font-size: clamp(1rem, 1vw, 1.4rem);
+    padding: 2rem 0 0;
+}
