@@ -17,14 +17,16 @@ export function ProfileCards({
 
   const listProfiles = () => {
 
-    return profiles?.map(profile => {
+    return profiles?.map((profile, i) => {
 
       const name = profile.name.charAt(0) + profile.name.slice(1).toLowerCase();
       
       return (
         <div 
           className={`${styles.cardProfile} ${selectedProfile?.id === profile.id ? styles.selectedProfile : ''}`} 
-          onClick={() => handleProfile(profile)}>
+          onClick={() => handleProfile(profile)}
+          key={i}
+        >
           <div className={styles.cardProfileContent}>
             <h2 className={styles.profile}>{name}</h2>
             <p className={styles.profileAbilities}>

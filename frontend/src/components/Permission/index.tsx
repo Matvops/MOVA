@@ -2,10 +2,11 @@ import styles from './style.module.css';
 
 type PermissionsProps = {
   title: string,
-  description: string
+  description: string,
+  permission: string
 }
 
-export function Permission({ title, description }: PermissionsProps) {
+export function Permission({ title, description, permission }: PermissionsProps) {
 
 
   return (

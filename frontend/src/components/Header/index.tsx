@@ -29,9 +29,7 @@ export function Header({ navbarVisible, setNavbarVisible }: HeaderProps) {
       </div>
       <div className={styles.headerUserInfo}>
         <p className={styles.profile}>{user.profile}</p>
-        <p>
-          <UserAvatar name={user.name} />
-        </p>
+        <UserAvatar name={user.name} />
       </div>
     </header>
   );
